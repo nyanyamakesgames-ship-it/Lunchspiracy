@@ -3,15 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoaderPC : MonoBehaviour
 {
-    public void LoadPCViewer(GameObject computerPanel)
+    [SerializeField] private GameObject computerPanel;
+
+    [SerializeField] private GameObject PCSelector;
+    private void Awake()
+    {
+        computerPanel.SetActive(false);
+    }
+    public void LoadPCViewer()
     {
         //SceneManager.LoadScene("Scenes/PCView");
         computerPanel.SetActive(true);
-        Debug.Log("click detected");
     }
-
     public void OnMouseEnter()
     {
+        
         Debug.Log("PC selector");
     }
 }
