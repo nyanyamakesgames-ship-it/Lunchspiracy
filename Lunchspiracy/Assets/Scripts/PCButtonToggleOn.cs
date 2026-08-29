@@ -3,13 +3,11 @@ using UnityEngine.UI;
 
 public class PCButtonToggleOn : MonoBehaviour
 {
-    [SerializeField] private GameObject OnScreen;
-    [SerializeField] private GameObject OffScreen;
+    [SerializeField] private Image OnScreen;
 
     private void Awake()
     {
-        OnScreen.SetActive(false);
-        OffScreen.SetActive(true);
+        
     }
 
     public void ScreenStateChange(bool ToggleValue)
@@ -17,14 +15,16 @@ public class PCButtonToggleOn : MonoBehaviour
         if (ToggleValue)
         {
             Debug.Log("Screen is ON");
-            OnScreen.SetActive(true);
-            OffScreen.SetActive(false);
+            Color temp = OnScreen.color;
+            temp.a = 1;
+            OnScreen.color = temp;
         }
         else
         { 
             Debug.Log("Screen is OFF");
-            OnScreen.SetActive(false);
-            OffScreen.SetActive(true);
+            Color temp = OnScreen.color;
+            temp.a = 0;
+            OnScreen.color = temp;
         }
     }
 }
